@@ -45,12 +45,12 @@ def crawl(directory) -> dict[str, set[str]]:
 
 
 def transition_model(corpus, page, damping_factor) -> dict[str, float]:
-    
+
     return {_page: (1-damping_factor) / (len(corpus) -1) + (damping_factor / len(corpus[page]) if _page in corpus[page] else 0) for _page in corpus if page != _page}
 
 def sample_pagerank(corpus, damping_factor, n):
     """
-    Return PageRank values for each page by sampling n pages
+    Return PageRank values for each page b sampling n pages
     according to transition model, starting with a page at random.
 
     Return a dictionary where keys are page names, and values are
